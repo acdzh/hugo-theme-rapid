@@ -1,0 +1,24 @@
+<p class="post-tags">
+  {{ if .Params.categories }}
+    <i class="fas fa-folder-open"></i>&nbsp;
+    {{ range .Params.categories }}
+      <a rel="category" href="/categories/{{ . | urlize }}" title="All posts in category {{ . }}">{{ . }}</a>
+    {{ end }}
+  {{ end }}
+
+  {{ if .Params.series }}
+    {{if .Params.categories}}&nbsp;&nbsp;&nbsp;{{ end }}
+    <i class="fas fa-bookmark"></i>&nbsp;
+    {{ range .Params.series }}
+      <a rel="series" href="/series/{{ . | urlize }}" title="All posts in series {{ . }}" >{{ . }}</a>
+    {{ end }}
+  {{ end }}
+
+  {{ if .Params.tags }}
+    {{if or .Params.categories .Params.series}}&nbsp;&nbsp;&nbsp;{{ end }}
+    <i class="fas fa-tags"></i>&nbsp;
+    {{ range .Params.tags }}
+      <a rel="tag" href="/tags/{{ . | urlize }}" title="All post with tag {{ . }}" >{{ . }}</a>
+    {{ end }}
+  {{ end }}
+  </p>

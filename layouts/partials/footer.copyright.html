@@ -1,0 +1,28 @@
+<footer id="footer">
+  <section class="container" id="footer-bottom">
+    <div class="container-inner">
+      <a id="back-to-top" href="#"><i class="fas fa-angle-up"></i></a>
+      <div class="pad group">
+        <div class="grid one-half">
+          <div id="copyright" style="font-size: 1.1rem;">
+              <p>{{ .Site.Copyright | safeHTML }}
+                <p style="margin-top: 8px;">Power by
+                  <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo</a>,
+                  <a rel="nofollow" href="http://golang.org" target="_blank">Golang</a>.
+                  Theme <a rel="nofolloe" href="https://github.com/acdzh/hugo-theme-rapid" target="_blank">rapid</a>.
+                </p>
+            </p>
+          </div>
+          <!--/#copyright-->
+        </div>
+        <!--/.pad-->
+        <div class="grid one-half last">
+          {{ partial "social-links.html" . }}
+        </div>
+      </div>
+
+    </div>
+    <!--/.container-inner-->
+  </section>
+  <!--/.container-->
+</footer>

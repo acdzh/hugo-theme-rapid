@@ -1,0 +1,40 @@
+<div class="featured" style="padding-bottom: {{ if .Params.tags }} 20px {{ else }} 8px {{ end }}">
+  <article class="post type-post status-publish format-standard has-post-thumbnail hentry group">
+      <div class="post-inner post-hover">
+            <div class="post-meta group">
+                <p class="post-date">{{ .Date.Format .Site.Params.DateFormat }}</p>
+                {{ if .Params.categories }}
+                    <p class="post-category">&nbsp;&nbsp;&nbsp;
+                        <i class="far fa-folder-open"></i>&nbsp;
+                        {{ range .Params.categories }}
+                            <a style="color: #bbb;" href="/categories/{{ . | urlize }}/" title="All posts in category {{ . }}" rel="category tag">{{ . }}&nbsp;</a>
+                        {{end}}
+                    </p>
+                {{ end }}
+                {{ if .Params.series }}
+                    <p class="post-series" style="color: #bbb;">
+                        {{if .Params.categories}}&nbsp;{{ end }}
+                        <i class="far fa-bookmark"></i>&nbsp;
+                        {{ range .Params.series }}
+                            <a style="color: #bbb;" href="/series/{{ . | urlize }}/" title="All posts in series {{ . }}" rel="series tag">{{ . }}&nbsp;</a>
+                        {{ end }}
+                    </p>
+                {{ end }}
+            </div>
+            <h2 class="post-title">
+                <a href="{{ .Permalink }}" rel="bookmark" title="{{ .Title }}">{{ .Title }}</a>
+            </h2>
+            <div class="entry excerpt">
+                <p>{{ .Summary }}&nbsp;...</p>
+            </div>
+        </div>
+        {{ if .Params.tags }}
+            <p class="post-tags" style="margin: 0;">
+                {{ range .Params.tags }}
+                    <a rel="tag" href="/tags/{{ . | urlize }}" title="All post with tag {{ . }}">{{ . }}</a>
+                {{ end }}
+            </p>
+        {{ end }}
+    </article>
+    
+</div>

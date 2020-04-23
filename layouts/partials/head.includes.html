@@ -1,0 +1,46 @@
+{{ with .OutputFormats.Get "RSS" }}
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Title }}" />
+  <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Title }}" />
+{{ end }}
+
+<!-- css from human -->
+<link rel="stylesheet" id="human-style-css" href="/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="responsive-css" href="/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css2" href="/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css3" href="/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
+
+<!-- katex.js -->
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>
+<script src="https://cdn.bootcss.com/KaTeX/0.11.1/contrib/auto-render.min.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function(){renderMathInElement(document.body);});</script>
+
+<!-- highlight.js -->
+<link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/{{ .Site.Params.SyntaxHighLightStyle }}.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- fonts -->
+<link href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code&display=swap">
+
+
+
+<!--[if lt IE 9]>
+<script src="/wp-content/themes/hueman/js/ie/html5.js"></script>
+<script src="wp-content/themes/hueman/js/ie/respond.js"></script>
+<script src="/wp-content/themes/hueman/js/ie/selectivizr.js"></script>
+<![endif]-->
+
+
+<!-- js for hueman -->
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/picturefill/3.0.3/picturefill.min.js"></script> -->
+<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
+
+
+<!-- self -->
+<link rel="stylesheet" id="custom-css" href="assets/css/custom.css" type="text/css" media="all"/>
+<script type="text/javascript" async defer src="assets/js/myblog.js"></script>

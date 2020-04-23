@@ -1,0 +1,77 @@
+<!-- toc.html -->
+<!-- ignore empty links with + -->
+{{ $headers := findRE "<h[1-4].*?>(.|\n])+?</h[1-4]>" .Content }}
+<!-- at least one header to link to -->
+{{ if ge (len $headers) 1 }}
+{{ $h1_n := len (findRE "(.|\n])+?" .Content) }}
+{{ $re := (cond (eq $h1_n 0) "<h[2-4]" "<h[1-4]") }}
+{{ $renum := (cond (eq $h1_n 0) "[2-4]" "[1-4]") }}
+{{ $permalink := .Permalink }}
+
+<!--Scrollspy-->
+<div class="toc">
+  <div id="page-scrollspy" class="toc-nav">
+        {{ range $headers }}
+          {{ $header := . }}
+            {{ range first 1 (findRE $re $header 1) }}
+                {{ range findRE $renum . 1 }}
+                  {{ $next_heading := (cond (eq $h1_n 0) (sub (int .) 1 ) (int . ) ) }}
+                    {{ range seq $next_heading }}
+                      <ul class="nav-tabs">
+                    {{end}}
+                    {{ $anchorId := (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) }}
+                      <li class="toc-nav-item">
+                          <a class="toc-nav-link text-left" href="{{ $permalink  }}#{{ $anchorId }}">
+                          {{ $header | plainify | htmlUnescape }}
+                          </a>
+                      </li>
+                    <!-- close list -->
+                    {{ range seq $next_heading }}
+                    </ul>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    </div>
+
+    <script>
+      // TODO scrollspy 滚动目录监听
+      $("#page-scrollspy a.toc-nav-link").on('click', function () {
+          const navbarHeight = 50;
+          const scollOnePageTime = 300;
+          let target = decodeURI(this.hash.replace(/^#/, ''));
+          let scrollLength = $(":header[id='" + target + "']").offset().top - navbarHeight - 50;
+          let scrollTime = Math.max(Math.min(scrollLength * scollOnePageTime / window.innerHeight, 800), 300);
+          $('html,body').animate({scrollTop: scrollLength}, scrollTime);
+          return false;
+        });
+
+    </script>
+    <style id="toc-css">
+      .toc {
+          width: 80%;
+          margin: 0 auto;
+          margin-top: 20px;
+          font-size: 14px;
+      }
+      .toc-nav ul, .toc-nav li {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+      }
+      .toc-nav ul ul ul { margin-left: 2rem; }
+      .toc-nav .toc-nav-link { color: #666; }
+      .toc-nav li.active .toc-nav-link {
+          background-color: #f6f6f6;
+          color: #ff0;
+          border-left: solid 2px #ff0;
+      }
+      /* see sidebar.css */
+      @media only screen and (max-width: 479px) {
+        .toc { display: none; }
+      }
+    </style>
+</div>
+<!--Scrollspy-->
+
+{{ end }}

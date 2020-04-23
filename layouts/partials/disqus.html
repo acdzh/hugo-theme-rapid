@@ -1,0 +1,7 @@
+{{ if and .Params.comments (gt (len .Site.DisqusShortname) 0) }}
+  <section id="comments" class="themeform">
+    {{ template "_internal/disqus.html" . }}
+  </section>
+{{ end }}
+
+

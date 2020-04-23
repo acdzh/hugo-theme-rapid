@@ -1,0 +1,102 @@
+<div id="social-links">   
+    {{ if .Site.Params.Author.GithubUserName }}
+        <!-- github -->
+        <a href="//github.com/{{ .Site.Params.Author.GithubUserName }}/" target="_blank" rel="noopener" title="fork me on github">
+            <i class="fab fa-github" aria-disabled></i>
+        </a>    
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Steam }}
+        <!-- steam -->
+        <a href="//steamcommunity.com/id/{{ .Site.Params.Author.SocialLinks.Steam }}/" target="_blank" rel="noopener" title="play games with me">
+            <i class="fab fa-steam" aria-disabled></i>
+        </a>    
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Linkedin }}
+        <!-- linkin -->
+        <a href="//linkedin.com/in/{{ .Site.Params.Author.SocialLinks.Linkedin }}" target="_blank" rel="noopener" title="Linkedin">
+            <i class="fab fa-linkedin" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Instagram }}
+        <!-- instagram -->
+        <a href="//instagram.com/{{ .Site.Params.Author.SocialLinks.Instagram }}/" target="_blank" rel="noopener" title="Instagram">
+            <i class="fab fa-instagram" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Facebook }}
+        <!-- facebook -->
+        <a href="//www.facebook.com/{{ .Site.Params.Author.SocialLinks.Facebook }}/" target="_blank" rel="noopener" title="Facebook">
+            <i class="fab fa-facebook" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Twitter }}
+        <!-- twitter -->
+        <a href="//twitter.com/{{ .Site.Params.Author.SocialLinks.Twitter }}/" target="_blank" rel="noopener" title="Twitter">
+            <i class="fab fa-twitter" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Mail }}
+        <!-- mail -->
+        <a href="mailto:{{ .Site.Params.Author.SocialLinks.Mail }}" target="_blank" rel="noopener" title="Mail">
+            <i class="far fa-envelope" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.QQ }}
+        <!-- qq -->
+        <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin={{ .Site.Params.Author.SocialLinks.QQ }}" target="_blank" rel="noopener" title="QQ">
+            <i class="fab fa-qq" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Weibo }}
+        <!-- weibo -->
+        <a href="//weibo.com/u/{{ .Site.Params.Author.SocialLinks.Weibo }}" target="_blank" rel="noopener" title="微博">
+            <i class="fab fa-weibo" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    {{ if .Site.Params.Author.SocialLinks.Zhihu }}
+        <!-- zhihu -->
+        <a href="//zhihu.com/people/{{ .Site.Params.Author.SocialLinks.Zhihu }}" target="_blank" rel="noopener" title="知乎">
+            <i class="fab fa-zhihu" aria-disabled></i>
+        </a>
+    {{ end }}
+
+    <div style="font-size: 1.1rem; margin-top: 10px;">
+        {{ if .Site.Params.Author.SocialLinks.ZhihuZhuanlan }}
+            <!-- 知乎专栏 -->
+            <a href="//zhuanlan.zhihu.com/{{ .Site.Params.Author.SocialLinks.ZhihuZhuanlan }}" target="_blank" rel="noopener" title="知乎专栏">
+                zhuanlan
+            </a>
+        {{ end }}
+
+
+        {{ if .Site.Params.Author.SocialLinks.CNBlogs }}
+            <!-- 博客园 -->
+            <a href="//cnblogs.com/{{ .Site.Params.Author.SocialLinks.CNBlogs }}" target="_blank" rel="noopener" title="博客园">
+                cnblogs
+            </a>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+    #social-links {
+        text-align: right; 
+        font-size: 1.5rem; 
+        color: white;
+    }
+    @media only screen and (max-width: 719px) {
+        #social-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+</style>

@@ -1,0 +1,41 @@
+<div class="sidebar s2">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fas fa-angle-left"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>More</p>
+    </div>
+    <div id="categories-2" class="widget widget_categories">
+      <h3><i class="fas fa-folder-open"></i>&nbsp;Categories</h3>
+      <ul>
+        {{ range $categoriesname, $taxonomy := .Site.Taxonomies.categories }}
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="/categories/{{ $categoriesname | urlize }}/">{{ $categoriesname }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+    <div id="series-2" class="widget widget_categories">
+      <h3><i class="fas fa-bookmark"></i>&nbsp;Series</h3>
+      <ul>
+        {{ range $seriesname, $taxonomy := .Site.Taxonomies.series }}
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="/series/{{ $seriesname | urlize }}/">{{ $seriesname }}</a>
+          </li>
+        {{ end }}
+      </ul>
+      <style>#series-2 > ul > li a:before {content: '\f02e'}</style>
+    </div>
+    <div id="tags-2" class="widget">
+      <h3><i class="fas fa-tags"></i>&nbsp;tags</h3>
+      <p class="post-tags">
+        {{ range $tagsname, $taxonomy := .Site.Taxonomies.tags }}
+            <a href="tags/{{ $tagsname | urlize }}">
+              <i class="fas fa-tag" style="color:#ccc; margin: 0 6px 0 -6px;"></i>
+              {{ $tagsname }}
+            </a>
+        {{ end }}
+      </p>
+    </div>
+  </div>
+</div>
+
