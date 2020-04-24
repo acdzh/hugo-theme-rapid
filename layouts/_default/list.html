@@ -1,0 +1,69 @@
+<!-- same as single.html -->
+{{ partial "head.html" . }}
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
+<div id="wrapper">
+  {{ partial "header.html" . }}
+
+  <div class="container" id="page">
+    <div class="container-inner">
+      <div class="main">
+        <div class="main-inner group">
+          <section class="content">
+
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                <div>
+                  {{ range .Params.categories }}
+                    <li class="category"><a href="/categories/{{ . | urlize }}/" rel="series category tag">{{ . }}</a></li>
+                  {{ end }}
+                </div>
+                <div {{ if .Params.categories }} style="float: right;" {{ end }}>
+                  {{ range .Params.series }}
+                    <li class="series"><a href="/series/{{ . | urlize }}/" rel="series category tag">{{ . }}</a></li>
+                  {{ end }}
+                </div>
+                <div>{{ if not (or .Params.categories .Params.series) }}<li class="series"><a href="/post/" rel="series category tag">Posts</a></li>{{ end }}</div>
+              </ul>
+            </div>
+
+            <div class="pad group">
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">{{ .Title }}</h1>
+                  <p class="post-byline">
+                    By {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.Author.name }}{{ end }} · 
+                    {{ .Date.Format .Site.Params.DateFormat }} · 
+                    {{ .WordCount }} Words · 
+                    ~{{ .ReadingTime }}min reading time |
+                    <a href="{{ .Site.Params.RepositoriesPath }}/blob/master/content/{{ replace .File.Path "\\" "/" }}"target="_blank"> Raw on <i class="fab fa-github"></i></a>
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      {{ .Content }}
+                    </div>
+                    {{ partial "license.html" . }}
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </article>
+              <div class="clear"></div>
+              {{ partial "afterArticleTags.html" . }}
+              {{ partial "relatedPosts.html" . }}
+              {{ partial "comments.html" . }}
+            </div>
+          </section>
+          
+          {{ partial "sidebarLeft.html" . }}
+          {{ partial "sidebarRight.html" . }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ partial "footer.copyright.html" . }}
+</div>
+{{ partial "footer.html" . }}
