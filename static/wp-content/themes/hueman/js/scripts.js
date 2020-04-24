@@ -72,17 +72,26 @@ jQuery(document).ready(function($) {
 /* ------------------------------------ */
 	$('body').addClass('s1-collapse');
 	$('body').addClass('s2-collapse');
+
+	function sidebarToggleIconToggle(jqEle) {
+		const i = jqEle.children('i').eq(0);
+		i.toggleClass('fa-angle-right').toggleClass('fa-angle-left');
+	}
 	
 	$('.s1 .sidebar-toggle').click(function(){
 		$('body').toggleClass('s1-collapse').toggleClass('s1-expand');
+		sidebarToggleIconToggle($(this));
 		if ($('body').is('.s2-expand')) { 
 			$('body').toggleClass('s2-expand').toggleClass('s2-collapse');
+			sidebarToggleIconToggle($('.s2 .sidebar-toggle'));
 		}
 	});
 	$('.s2 .sidebar-toggle').click(function(){
 		$('body').toggleClass('s2-collapse').toggleClass('s2-expand');
+		sidebarToggleIconToggle($(this));
 		if ($('body').is('.s1-expand')) { 
 			$('body').toggleClass('s1-expand').toggleClass('s1-collapse');
+			sidebarToggleIconToggle($('.s1 .sidebar-toggle'));
 		}
 	});
 
