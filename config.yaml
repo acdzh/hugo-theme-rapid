@@ -17,15 +17,16 @@ builddrafts: false # 构建草稿.
 # pygmentsUseClasses: true
 pygmentsCodeFences: false
 
-toc: true
-
 RSSUri: "feed.xml"
 disablePathToLower: true 
 hasCJKLanguage: true
 DisqusShortname: "acdzh"
 
 permalinks:
-  posts: posts/:year-:month/:slug/
+  post: post/:year-:month/:title/:slug/
+  tec: tec/:year-:month/:slug/
+  chat: chat/:year-:month/:slug/
+  otherss: others/:slug/
 
 Taxonomies:
   tag: "tags"
@@ -39,9 +40,10 @@ Params:
   DateFormat: "2006年01月02日 15:04"
   Tagline: "---0-0-0---"
   Description: ""
-  Keywords: "独立博客, 程序员, 技术分享"
+  Keywords: "独立博客,程序员,思考,读书笔记,技术分享"
   SyntaxHighLightStyle: "github" # https://www.bootcdn.cn/highlight.js/
   IndexDetailedPostCount: 5
+  MainSections: [post, tec, chat, othersss]
   Author:
     Name: "acdzh"
     Homepage: "https://blog.acdzh.ltd"
@@ -62,6 +64,7 @@ Params:
 menu:
   categories:
     - Name: 技术
+      EnglishName: tec
       Pre: "<i class='fas fa-gavel'></i>"
     - Name: 闲话
       Pre: "<i class='fas fa-comment'></i>"
