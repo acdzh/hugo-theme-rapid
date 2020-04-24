@@ -1,0 +1,48 @@
+{{ $sep := .Get "sep" | default "," }}
+{{ if .Inner}}
+  <table border="1">
+    {{ $rows := split .Inner "\n" }}
+    {{ range $i, $r := $rows }}
+      {{ if and (ne $i 0) (ne $i (sub (len $rows) 1))}}
+        {{ if eq $i 1 }}
+          <thead><tr>
+              {{ range $c :=  split $r $sep }}
+                <th>{{ $c }}</th>
+              {{end}}
+          </tr></thead>
+        {{ else }}
+          <tbody>
+            <tr>
+              {{ range $c :=  split $r $sep }}
+                <td>{{ $c }}</td>
+              {{end}}
+            </tr>
+          </tbody>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </table>
+{{ else }}
+  <table border="1">
+    {{ $url := .Get "url" }}
+    {{ range $i, $r := getCSV $sep $url }}
+      {{ if eq $i 0 }}
+        <thead>
+          <tr>
+            {{ range $r }}
+              <th>{{ . }}</th>
+            {{end}}
+          </tr>
+        </thead>
+      {{else}}
+        <tbody>
+          <tr>
+            {{ range  $r }}
+              <td>{{ . }}</td>
+            {{end}}
+          </tr>
+        </tbody>
+      {{end}}
+    {{ end }}
+  </table>
+{{ end }}

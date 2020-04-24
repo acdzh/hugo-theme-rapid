@@ -1,1 +1,13 @@
-<script src="https://gist.github.com/{{ .Get "u" }}/{{ .Get "id" }}.js"></script>
+
+{{ $id := index .Params 0 }}
+<blockquote id="gist-tips-{{ .Get `id` }}" style="display: none;">
+  If you don't see <a href="https://gist.github.com/{{ $id }}" target="_blank">the gist</a> here, please consider to use magic.
+</blockquote>
+<script>
+  setTimeout(function() {
+    if ($('.gist').length === 0) {
+      $('#gist-tips-{{ .Get `id` }}').show();
+    }
+  }, 2000);
+</script>
+<script src="https://gist.github.com/{{ $id }}.js" ></script>
