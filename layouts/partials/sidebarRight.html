@@ -5,7 +5,11 @@
       <p>More</p>
     </div>
     <div id="categories-2" class="widget widget_categories">
-      <h3><i class="fas fa-folder-open"></i>&nbsp;Categories</h3>
+      <h3>
+        <a rel="nofollow" href="/categories/">
+          <i class="fas fa-folder-open"></i>&nbsp;Categories
+        </a>
+      </h3>
       <ul>
         {{ range $categoriesname, $taxonomy := .Site.Taxonomies.categories }}
           <li class="cat-item cat-item-1">
@@ -15,7 +19,11 @@
       </ul>
     </div>
     <div id="series-2" class="widget widget_categories">
-      <h3><i class="fas fa-bookmark"></i>&nbsp;Series</h3>
+      <h3>
+        <a rel="nofollow" href="/series/">
+          <i class="fas fa-bookmark"></i>&nbsp;Series
+        </a>
+      </h3>
       <ul>
         {{ range $seriesname, $taxonomy := .Site.Taxonomies.series }}
           <li class="cat-item cat-item-1">
@@ -26,7 +34,11 @@
       <style>#series-2 > ul > li a:before {content: '\f02e'}</style>
     </div>
     <div id="tags-2" class="widget">
-      <h3><i class="fas fa-tags"></i>&nbsp;tags</h3>
+      <h3>
+        <a rel="nofollow" href="/tags/">
+          <i class="fas fa-tags"></i>&nbsp;tags
+        </a>
+      </h3>
       <p class="post-tags">
         {{ range $tagsname, $taxonomy := .Site.Taxonomies.tags }}
             <a href="tags/{{ $tagsname | urlize }}">

@@ -1,11 +1,11 @@
 <div class="featured" style="padding-bottom: {{ if .Params.tags }} 20px {{ else }} 8px {{ end }}">
-  <article class="post type-post status-publish format-standard has-post-thumbnail hentry group">
-      <div class="post-inner post-hover">
+    <article class="post type-post status-publish format-standard has-post-thumbnail hentry group">
+        <div class="post-inner post-hover">
             <div class="post-meta group">
                 <p class="post-date">{{ .Date.Format .Site.Params.DateFormat }}</p>
                 {{ if .Params.categories }}
                     <p class="post-category">&nbsp;&nbsp;&nbsp;
-                        <i class="far fa-folder-open"></i>&nbsp;
+                        <a style="color: #bbb;" rel="nofollow" href="/categories/" title="All categories"><i class="far fa-folder-open"></i></a>&nbsp;
                         {{ range .Params.categories }}
                             <a style="color: #bbb;" href="/categories/{{ . | urlize }}/" title="All posts in category {{ . }}" rel="category tag">{{ . }}&nbsp;</a>
                         {{end}}
@@ -14,7 +14,7 @@
                 {{ if .Params.series }}
                     <p class="post-series" style="color: #bbb;">
                         {{if .Params.categories}}&nbsp;{{ end }}
-                        <i class="far fa-bookmark"></i>&nbsp;
+                        <a style="color: #bbb;" rel="nofollow" href="/series/" title="All series"><i class="far fa-bookmark"></i></a>&nbsp;
                         {{ range .Params.series }}
                             <a style="color: #bbb;" href="/series/{{ . | urlize }}/" title="All posts in series {{ . }}" rel="series tag">{{ . }}&nbsp;</a>
                         {{ end }}

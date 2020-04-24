@@ -21,7 +21,7 @@
                     <li class="series"><a href="/series/{{ . | urlize }}/" rel="series category tag">{{ . }}</a></li>
                   {{ end }}
                 </div>
-                <div>{{ if not (and .Params.categories .Params.series) }}<li class="series"><a href="/post/" rel="series category tag">Posts</a></li>{{ end }}</div>
+                <div>{{ if not (or .Params.categories .Params.series) }}<li class="series"><a href="/post/" rel="series category tag">Posts</a></li>{{ end }}</div>
               </ul>
             </div>
 
