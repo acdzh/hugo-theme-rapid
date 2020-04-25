@@ -120,10 +120,40 @@
 
 
 
-/************************* hljs tools *************************/
+/************************* hljs tools start *************************/
 .hljs-tools {
     position: absolute;
     right: 2%;
     margin-top: 4px;
 }
-/************************* hljs tools ***************************/
+/************************* hljs tools end ***************************/
+
+
+/************************* title start *************************/
+#header {
+    background-size: cover;
+}
+
+#title-avatar-img {
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 719px) {
+    .site-title a {
+        float: left;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    #title-avatar-img {
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        margin: 0 auto;
+    }
+}
+/************************* title end ***************************/
