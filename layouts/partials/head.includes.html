@@ -19,6 +19,7 @@
 <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/{{ .Site.Params.SyntaxHighLightStyle }}.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<style>.blob-num, .hljs-toolbox {color: {{ if .Site.Params.SyntaxHLStyleIsLight }}rgba(27,31,35,0.3){{ else }}rgba(198, 196, 191, 0.3);{{ end }};}</style>
 
 <!-- fonts -->
 <link href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">

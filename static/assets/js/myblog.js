@@ -23,9 +23,19 @@
             $('.hentry').matchHeight();
             $('.related.post-hover').matchHeight();
             $('.hljs').each(function() {
-                const langName =  $(this).attr('class').split(' ')[0].split('-')[1];
-                $(this).parent().prepend(`<div class="hljs-tools">${langName}</div>`);
+                const langName =  $(this).attr('class').split(' ').pop();
+                $(this).parent().prepend(`<div class="hljs-toolbox"><span>${langName || 'plain-text' }</span>&nbsp;<a class="hljs-toolbox-copy" href="javascript:void(0);" onclick="fnCopyEle(this);"><i class="far fa-copy"></i></a></div>`);
+                $(this).parent().find('.hljs-toolbox-copy').click(()=>fnCopyEle(this));
+                let lines = this.innerHTML.split(/\n/).slice(0, -1);
+                this.innerHTML = [
+                    '<ul>',
+                    lines.map(
+                        (item, index) => `<li><span class="blob-num" data-line-number="${[...new Array((lines.length+1).toString().length - (index+1).toString().length)].map(()=>'&nbsp;')}${(index + 1)}"></span>${item}</li>`
+                    ).join(''),
+                    '</ul>'
+                ].join('');
             });
+
         },
         hasSetBg = false,
         scroller = function (event) {
@@ -56,3 +66,9 @@
         }
     }
 })(window);
+
+function fnCopyEle(ele) {
+    window.getSelection().selectAllChildren(ele);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+}
