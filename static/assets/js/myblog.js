@@ -22,6 +22,10 @@
             });
             $('.hentry').matchHeight();
             $('.related.post-hover').matchHeight();
+            $('.hljs').each(function() {
+                const langName =  $(this).attr('class').split(' ')[0].split('-')[1];
+                $(this).parent().prepend(`<div class="hljs-tools">${langName}</div>`);
+            });
         },
         hasSetBg = false,
         scroller = function (event) {
