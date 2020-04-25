@@ -63,11 +63,29 @@
 
 
 
-/************************* scrollbar start *************************/
+/************************* sidebar start *************************/
     .s1 {
         position: -webkit-sticky;
         position: sticky;
         top: 55px;
+    }
+
+    /* i don't know why but it really fuckly work. */
+    /* i hate css. */
+    /* fuck css position. */
+    /* fuck! */
+    @media only screen and (max-width: 960px) and (min-width: 480px) {
+        .s1-expand .s1  {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 55px !important;
+            position: sticky !important;
+            margin-left: -3000px !important; /* why it works!? */
+            overflow: hidden;
+        }
+    }
+    @media only screen and (max-width: 960px) and (min-width: 720px) {
+        .s1-expand .s1 { transform: translateX(10px); }
     }
 
     /* 当屏幕宽度过小时, s1 重新出现在文章下方, 不再使用 sticky */
@@ -77,11 +95,11 @@
             top: 0
         }
     }
-/************************* scrollbar end ***************************/
+/************************* sidebar end ***************************/
 
 
 
-/************************* sidebar start *************************/
+/************************* scrollbar start *************************/
     /* 滚动条 */
     ::-webkit-scrollbar {
         width: 12px;
@@ -98,4 +116,14 @@
         background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
         border-radius: 6px;
     }
-/************************* sidebar end ***************************/
+/************************* scrollbar end ***************************/
+
+
+
+/************************* hljs tools *************************/
+.hljs-tools {
+    position: absolute;
+    right: 2%;
+    margin-top: 4px;
+}
+/************************* hljs tools ***************************/
