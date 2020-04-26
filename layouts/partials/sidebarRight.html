@@ -13,7 +13,7 @@
       <ul>
         {{ range $categoriesname, $taxonomy := .Site.Taxonomies.categories }}
           <li class="cat-item cat-item-1">
-            <a rel="nofollow" href="/categories/{{ $categoriesname | urlize }}/">{{ $categoriesname }}</a>
+            <a rel="nofollow" href="/categories/{{ $categoriesname | urlize }}/">{{ $categoriesname }} ({{ len $taxonomy }})</a>
           </li>
         {{ end }}
       </ul>
@@ -27,7 +27,7 @@
       <ul>
         {{ range $seriesname, $taxonomy := .Site.Taxonomies.series }}
           <li class="cat-item cat-item-1">
-            <a rel="nofollow" href="/series/{{ $seriesname | urlize }}/">{{ $seriesname }}</a>
+            <a rel="nofollow" href="/series/{{ $seriesname | urlize }}/">{{ $seriesname }} ({{ len $taxonomy }})</a>
           </li>
         {{ end }}
       </ul>

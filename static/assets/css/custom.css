@@ -132,7 +132,6 @@
 .hljs ul li { list-style: circle; /* none;decimal-leading-zero; */ }
 .blob-num { padding-right: 10px; /* color please see head.includes.html */ }
 .blob-num:before { content: attr(data-line-number); }
-
 /************************* hljs tools end ***************************/
 
 
