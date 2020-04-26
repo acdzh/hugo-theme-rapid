@@ -123,8 +123,14 @@
 /************************* hljs tools start *************************/
 .hljs-toolbox {
     position: absolute;
-    right: 1.5%;
-    margin-top: 4px;
+    right: 0;
+    padding-right: 2%;
+    padding-left: 2%;
+    margin-top: -18px;
+    background-color: rgba(248, 248, 248, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 6px 6px 0 0;
+    border-bottom-width: 0;
 }
 .hljs::-webkit-scrollbar { height: 6px; }
 .hljs { overflow-x: auto; white-space: pre; line-height: 1.6; }
