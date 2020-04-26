@@ -46,32 +46,7 @@
             $('html,body').animate({scrollTop: scrollLength}, scrollTime);
             return false;
           });
-
       </script>
-      <style id="toc-css">
-        .toc {
-            width: 80%;
-            margin: 0 auto;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .toc-nav ul, .toc-nav li {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .toc-nav ul ul ul { margin-left: 2rem; }
-        .toc-nav .toc-nav-link { color: #666; }
-        .toc-nav li.active .toc-nav-link {
-            background-color: #f6f6f6;
-            color: #ff0;
-            border-left: solid 2px #ff0;
-        }
-        /* see sidebar.css */
-        @media only screen and (max-width: 479px) {
-          .toc { display: none; }
-        }
-      </style>
   </div>
   <!--Scrollspy-->
   {{ end }}
