@@ -23,8 +23,9 @@
             $('.hentry').matchHeight();
             $('.related.post-hover').matchHeight();
             $('.hljs').each(function() {
-                const langName =  $(this).attr('class').split(' ').pop();
-                $(this).parent().prepend(`<div class="hljs-toolbox"><span>${langName || 'plain-text' }</span>&nbsp;<a class="hljs-toolbox-copy" href="javascript:void(0);" onclick="fnCopyEle(this);"><i class="far fa-copy"></i></a></div>`);
+                const langName_ =  $(this).attr('class').split(' ').pop();
+                const langName = langName_ === 'hljs' ? $(this).attr('class').split(' ')[0].split('-').pop() : langName_;
+                $(this).parent().prepend(`<div class="hljs-toolbox"><span>${ langName || 'plain-text' }</span>&nbsp;<a class="hljs-toolbox-copy" href="javascript:void(0);" onclick="fnCopyEle(this);"><i class="far fa-copy"></i></a></div>`);
                 $(this).parent().find('.hljs-toolbox-copy').click(()=>fnCopyEle(this));
                 let lines = this.innerHTML.split(/\n/).slice(0, -1);
                 this.innerHTML = [
