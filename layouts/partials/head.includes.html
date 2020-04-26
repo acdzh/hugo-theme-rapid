@@ -45,3 +45,9 @@
 <!-- self -->
 <link rel="stylesheet" id="custom-css" href="assets/css/custom.css" type="text/css" media="all"/>
 <script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+<!-- pwa -->
+<script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/assets/js/service-worker.js'); console.log('good') }</script>
+<link rel="manifest" href="/app.webmanifest">
+<!-- <script type="text/javascript" href="assets/js/service-worker.js"></script> -->
+

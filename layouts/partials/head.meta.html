@@ -5,17 +5,19 @@
 {{ if .Keywords }}<meta name="keywords" content="{{ range .Keywords }}{{ . }},{{ end }}">{{ else if eq .RelPermalink "/" }}<meta name="keywords" content="{{ .Site.Params.Keywords }}">{{ end }}
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.Author.name }}{{ end }}">
+<meta name="theme-color" content="#c26d46">
 <meta name="publisher" content="{{ .Site.Params.Author.Name }}">
 <meta name="generator" content="http://gohugo.io/"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 <meta itemprop="name" content="{{ if ne .RelPermalink "/" }}{{ .Title }} - {{ end }}{{ .Site.Title }}">
 <meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Title }}{{ end }}">
-<meta itemprop="image" content="{{ .Site.BaseURL }}/public/avatar.jpg">
+<meta itemprop="image" content="{{ .Site.BaseURL }}/public/icons/png/avatar_512x512.png">
 
 <meta property="og:title" content="{{ if ne .RelPermalink "/" }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ .Permalink}}" />
-<meta property="og:image" content="{{ .Site.BaseURL }}/public/avatar.jpg" />
+<meta property="og:image" content="{{ .Site.BaseURL }}/public/icons/png/avatar_512x512.png" />
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Title }}{{ end }}">
 
 <meta name="twitter:card" content="summary">
@@ -23,6 +25,5 @@
 <meta name="twitter:title" content="{{ if ne .RelPermalink "/" }}{{ .Title }} - {{ end }}{{ .Site.Title }}">
 <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:creator" content="@{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.Author.name }}{{ end }}">
-<meta name="twitter:image" content="{{ .Site.BaseURL }}/public/avatar.jpg">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}/public/icons/png/avatar_512x512.png">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
