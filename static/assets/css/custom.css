@@ -127,10 +127,10 @@
     margin-top: 4px;
 }
 .hljs::-webkit-scrollbar { height: 6px; }
-.hljs { overflow-x: auto; white-space: nowrap; }
+.hljs { overflow-x: auto; white-space: pre; line-height: 1.6; }
 .hljs ul { margin: 0; }
 .hljs ul li { list-style: circle; /* none;decimal-leading-zero; */ }
-.blob-num { padding-right: 10px; /* color please see head.includes.html */ }
+.blob-num { padding-right: 14px; /* color please see head.includes.html */ }
 .blob-num:before { content: attr(data-line-number); }
 /************************* hljs tools end ***************************/
 
