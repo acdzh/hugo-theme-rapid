@@ -47,7 +47,9 @@
 <script type="text/javascript" async defer src="assets/js/myblog.js"></script>
 
 <!-- pwa -->
-<script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/assets/js/service-worker.js'); console.log('good') }</script>
+<script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/assets/js/service-worker.js');}</script>
 <link rel="manifest" href="/app.webmanifest">
 <!-- <script type="text/javascript" href="assets/js/service-worker.js"></script> -->
+
+{{ template "_internal/google_analytics.html" . }}
 
