@@ -7,7 +7,7 @@
     "theme_color": "#c26d46",
     "background_color": "#f0f0f0",
     "android_package_name":"ltd.acdzh.blog.pwa",
-    "orientation": "portrait",
+    "orientation": "any",
     "icons": [
         {
             "src": "/public/icons/png/avatar_16x16.png",
