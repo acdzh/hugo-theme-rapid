@@ -1,5 +1,4 @@
 <header id="header">
-
   <nav class="nav-container group" id="nav-topbar">
     <div class="nav-toggle"><i class="fas fa-bars"></i></div>
     <div class="nav-text"><!-- put your mobile menu text here --></div>
@@ -24,7 +23,7 @@
         <li class="menu-item menu-item-type-post_type menu-item-object-page">
           {{ with .OutputFormats.Get "RSS" }}
             <a rel="nofollow" href="{{ .RelPermalink }}" type="application/rss+xml" target="_blank">
-              <i class='far fa-heart'></i>&nbsp;&nbsp;订阅
+              <i class="fas fa-heart"></i>&nbsp;&nbsp;订阅
             </a>
           {{ end }}
         </li>
