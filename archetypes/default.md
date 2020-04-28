@@ -7,6 +7,7 @@ description:
 url:
 slug: 
 math: 
+cover:
 tags: []
 series: []
 categories: [技术, 闲话]
