@@ -9,17 +9,15 @@
           <div class="main-inner group">
             <section class="content">
               <div class="pad group">
-                {{ range first (.Site.Params.IndexDetailedPostCount) (where site.RegularPages "Type" "in" site.Params.mainSections)}}
+                {{ range first (.Site.Params.IndexDetailedPostCount) (where site.RegularPages "Type" "in" site.Params.MainSections)}}
                   {{ partial "featured.html" . }}
                 {{end}}
                 <div class="post-list group">
-                  {{ range $index,$data := (where site.RegularPages "Type" "in" site.Params.mainSections)}}
+                  {{ range $index,$data := (where site.RegularPages "Type" "in" site.Params.MainSections)}}
                     {{ if gt $index (sub .Site.Params.IndexDetailedPostCount 1) }}
-                      {{ if ge $data.Date.Year (now.Format "2006") }}
                       <div class="post-row">
                         {{ partial "postItem.html" $data }}
                       </div>
-                      {{end}}
                     {{end}}
                   {{end}}
                 </div>
