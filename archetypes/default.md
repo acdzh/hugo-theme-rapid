@@ -2,15 +2,18 @@
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: false
-comment: true
-description: ""
+comments: true
+description: 
+url:
+slug: 
+math: 
 tags: []
 series: []
-categories: ["技术", "闲话"]
+categories: [技术, 闲话]
 ---
 
 ## 历史记录
 
-| Version | Action   | Time        |
-| ------- | -------- | ----------- |
-| 1.0     | Init     | {{ .Date }} |
+|Version| Action|Time|
+|:-------:|:--------:|:-----------:|
+|1.0|Init|{{ now.Format "2006-01-02 15:04" }}|
