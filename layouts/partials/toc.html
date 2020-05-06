@@ -22,7 +22,7 @@
                       {{end}}
                       {{ $anchorId := (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) }}
                         <li class="toc-nav-item">
-                            <a class="toc-nav-link text-left" href="{{ $permalink  }}#{{ $anchorId }}">
+                            <a class="toc-nav-link text-left" href="{{ $permalink  }}#{{ $anchorId }}" title="{{ $header | plainify | htmlUnescape }}">
                             {{ $header | plainify | htmlUnescape }}
                             </a>
                         </li>
