@@ -1,16 +1,34 @@
 {{ $sep := .Get "sep" | default "," }}
+{{ $title := .Get "title" | default ""}}
 {{ if .Inner}}
-  <table border="1">
-    {{ $rows := split .Inner "\n" }}
-    {{ range $i, $r := $rows }}
-      {{ if and (ne $i 0) (ne $i (sub (len $rows) 1))}}
-        {{ if eq $i 1 }}
-          <thead><tr>
-              {{ range $c :=  split $r $sep }}
-                <th>{{ $c }}</th>
-              {{end}}
-          </tr></thead>
-        {{ else }}
+  {{if eq $title ""}}
+    <table border="1">
+      {{ $rows := split .Inner "\n" }}
+      {{ range $i, $r := $rows }}
+        {{ if and (ne $i 0) (ne $i (sub (len $rows) 1))}}
+          {{ if eq $i 1 }}
+            <thead><tr>
+                {{ range $c :=  split $r $sep }}
+                  <th>{{ $c }}</th>
+                {{end}}
+            </tr></thead>
+          {{ else }}
+            <tbody>
+              <tr>
+                {{ range $c :=  split $r $sep }}
+                  <td>{{ $c }}</td>
+                {{end}}
+              </tr>
+            </tbody>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </table>
+  {{ else if eq $title "nil"}}
+    <table border="1">
+      {{ $rows := split .Inner "\n" }}
+      {{ range $i, $r := $rows }}
+        {{ if and (ne $i 0) (ne $i (sub (len $rows) 1))}}
           <tbody>
             <tr>
               {{ range $c :=  split $r $sep }}
@@ -20,8 +38,32 @@
           </tbody>
         {{ end }}
       {{ end }}
-    {{ end }}
-  </table>
+    </table>
+  {{ else }}
+    <table border="1">
+      {{ $rows := split .Inner "\n" }}
+        {{ $maxcol := 0}}
+        {{ range $i, $r := $rows }}
+          {{ if gt (len (split $r $sep)) $maxcol }}
+            {{ $maxcol = len (split $r $sep) }}
+          {{ end }}
+        {{ end }}
+      <thead><tr>
+            <th colspan="{{ $maxcol }}">{{ $title }}</th>
+      </tr></thead>
+      {{ range $i, $r := $rows }}
+        {{ if and (ne $i 0) (ne $i (sub (len $rows) 1))}}
+            <tbody>
+              <tr>
+                {{ range $c :=  split $r $sep }}
+                  <td>{{ $c }}</td>
+                {{end}}
+              </tr>
+            </tbody>
+        {{ end }}
+      {{ end }}
+    </table>
+  {{ end }}
 {{ else }}
   <table border="1">
     {{ $url := .Get "url" }}
