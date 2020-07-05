@@ -44,7 +44,7 @@
                   <p class="post-byline">
                     By {{ if .Params.author }}
                       {{ if .Params.fromurl }}
-                        <a href="{{ .Params.fromurl }}">{{ .Params.author }}</a>
+                        <a href="{{ .Params.fromurl }}" style="text-decoration: none;">{{ .Params.author }}</a>
                       {{ else }}
                         {{ .Params.author }}
                       {{ end }}
@@ -54,12 +54,8 @@
                     {{ .Date.Format .Site.Params.DateFormat }} · 
                     {{ .WordCount }} Words · 
                     ~{{ .ReadingTime }}min reading time |
-                    <a href="{{ .Site.Params.RepositoriesPath }}/blob/master/content/{{ replace .File.Path "\\" "/" }}"target="_blank"> Raw on <i class="fab fa-github"></i></a>
+                    <a href="{{ .Site.Params.RepositoriesPath }}/blob/master/content/{{ replace .File.Path "\\" "/" }}"target="_blank" style="text-decoration: none;"> Raw on <i class="fab fa-github"></i></a>
                   </p>
-
-                  {{ if .Params.fromurl }}
-                    <p>文章参考来源: </p>
-                  {{ end }}
 
                   <div class="clear"></div>
 
