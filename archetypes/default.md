@@ -4,6 +4,8 @@ date: {{ .Date }}
 draft: false
 comments: true
 description: 
+author: 
+fromurl: 
 url:
 slug: 
 math: 
