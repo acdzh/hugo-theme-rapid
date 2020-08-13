@@ -11,14 +11,47 @@
 <link rel="stylesheet" id="human-style-css2" href="/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="human-style-css3" href="/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
 
-<!-- highlight.js -->
-<link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/{{ .Site.Params.SyntaxHighLightStyle }}.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<style>.blob-num, .hljs-toolbox {color: {{ if .Site.Params.SyntaxHLStyleIsLight }}rgba(27,31,35,0.3){{ else }}rgba(198, 196, 191, 0.3);{{ end }};}</style>
+<!-- highlight -->
+{{ if (in .Params.plugins "code") }}
+  <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/styles/{{ .Site.Params.SyntaxHighLightStyle }}.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>.blob-num, .hljs-toolbox {color: {{ if .Site.Params.SyntaxHLStyleIsLight }}rgba(27,31,35,0.3){{ else }}rgba(198, 196, 191, 0.3);{{ end }};}</style>
+{{ end }}
+
+<!-- math -->
+{{ if (or (in .Params.plugins "math") (in .Params.plugins "mathjax") (in .Params.plugins "katex"))}}
+  {{ if (in .Params.plugins "mathjax") }} 
+    <script src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
+  {{ else }}
+    <!-- katex.js -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function(){renderMathInElement(document.body);});</script>
+  {{ end }}
+{{ end }}
+
+<!-- viz.js dot -->
+{{ if (or (in .Params.plugins "dot") (in .Params.plugins "viz")) }}
+<script src="https://cdn.bootcdn.net/ajax/libs/viz.js/2.1.2/viz.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/viz.js/2.1.2/lite.render.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function(){
+  var viz = new Viz();
+  [...document.getElementsByClassName('dot')].forEach(function(ele) {
+    viz.renderString(ele.innerText).then(svg => {
+      ele.innerHTML = svg;
+      ele.classList.remove('hidden');
+    }).catch(() => {
+      ele.innerHTML = `<span style="color: #aaa; font-size: 14px;"> dot 渲染失败:</span><br><pre style="margin-top: 0;"><code class="language-dot hljs">${ele.innerHTML}</code></pre>`;
+      ele.classList.remove('hidden');
+    });
+  });
+});</script>
+{{ end }}
 
 <!-- fonts -->
-<link href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="public/font/hack/css/hack.min.css">
 <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code&display=swap">
 
@@ -32,9 +65,9 @@
 
 
 <!-- js for hueman -->
-<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
-<script src="https://cdn.bootcss.com/picturefill/3.0.3/picturefill.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
 <script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
 
 

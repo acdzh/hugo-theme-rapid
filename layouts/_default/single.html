@@ -1,13 +1,4 @@
 {{ partial "head.html" . }}
-{{ if eq .Params.math "mathjax" }} 
-  <script src="https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
-{{ else }}
-  <!-- katex.js -->
-  <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>
-  <script src="https://cdn.bootcss.com/KaTeX/0.11.1/contrib/auto-render.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function(){renderMathInElement(document.body);});</script>
-{{ end }}
 
 <body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
 <div id="wrapper">

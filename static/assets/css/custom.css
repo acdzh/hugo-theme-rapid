@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 /************************ color start *************************/
     /* 主题背景色 */
     #nav-topbar.nav-container, .nav-container, .themeform input[type="submit"], .themeform button[type="submit"], .sidebar .sidebar-top, .sidebar .sidebar-toggle, #flexslider-featured .flex-control-nav li a.flex-active, .post-tags a:hover, .s1 .widget_calendar caption, #footer .widget_calendar caption, .author-bio .bio-avatar:after, .commentlist li.bypostauthor > .comment-body:after, .commentlist li.comment-author-admin > .comment-body:after {
@@ -40,7 +44,7 @@
     }
 
     /* 代码, 图片圆角 */
-    code, img, iframe, table {
+    code, img, svg, iframe, table {
         border-radius: 6px;
         box-shadow: 0 1px 5px rgba(0,0,0,.075);
     }
@@ -50,7 +54,18 @@
         max-width: 99%;
     }
 
+    .dot > svg { 
+        max-width: 99%;
+    }
+
+    svg { 
+        margin-left: auto; 
+        margin-right:auto; 
+        display:block;
+    }
+
     pre {
+        tab-size: 4;
         border-radius: 6px 0 6px 6px;
         box-shadow: 0 1px 5px rgba(0,0,0,.075);
     }
