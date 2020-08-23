@@ -44,7 +44,13 @@
                     {{ end }} · 
                     {{ .Date.Format .Site.Params.DateFormat }} · 
                     {{ .WordCount }} Words · 
-                    ~{{ .ReadingTime }}min reading time |
+                    ~{{ .ReadingTime }}min reading time 
+                    {{ if eq .Site.Params.CommentsComponent "valine" }}
+                      ·
+                      <span id="{{ (urls.Parse .Permalink).Path }}" class="leancloud_visitors" data-flag-title="{{ .Page.Title }}">
+                        <span class="leancloud-visitors-count"></span>
+                      </span> Visitors
+                    {{ end }} |
                     <a href="{{ .Site.Params.RepositoriesPath }}/blob/master/content/{{ replace .File.Path "\\" "/" }}"target="_blank" style="text-decoration: none;"> Raw on <i class="fab fa-github"></i></a>
                   </p>
 
@@ -62,7 +68,13 @@
               <div class="clear"></div>
               {{ partial "afterArticleTags.html" . }}
               {{ partial "relatedPosts.html" . }}
-              {{ partial "disqus.html" . }}
+              {{.Site.Params.Valin}}
+              {{ if eq .Site.Params.CommentsComponent "disqus" }}
+                {{ partial "disqus.html" . }}
+              {{ end }}
+              {{ if eq .Site.Params.CommentsComponent "valine" }}
+                {{ partial "valine.html" . }}
+              {{ end }}
             </div>
           </section>
           {{ partial "sidebarLeft.html" . }}

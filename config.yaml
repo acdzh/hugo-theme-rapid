@@ -20,7 +20,7 @@ pygmentsCodeFences: false
 RSSUri: "feed.xml"
 disablePathToLower: true 
 hasCJKLanguage: true
-DisqusShortname: "acdzh"
+DisqusShortname: acdzh
 
 permalinks:
   post: post/:year-:month/:title/:slug/
@@ -37,6 +37,10 @@ Params:
   CopyrightHTML: "Copyright &#xA9; 2020. All Rights Reserved."
   RepositoriesPath: "https://github.com/acdzh/blog"
   googleAdSense: "ca-pub-7980517780099899"
+  CommentsComponent: valine # or disqus
+  Valine:
+    appId: appId
+    appKey: appKey
   SidebarRecentLimit: 5
   DateFormat: "2006年01月02日 15:04"
   Tagline: "---0-0-0---"
