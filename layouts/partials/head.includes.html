@@ -72,16 +72,6 @@
 
 
 <!-- self -->
-<script>
-    Array.prototype.mapToObject = function(func) {
-      const obj = {};
-      this.forEach((item, index) => {
-        const result = func(item, index) || [];
-        obj[result[0]] = result[1];
-      });
-      return obj;
-    };
-</script>
 <link rel="stylesheet" id="custom-css" href="assets/css/custom.css" type="text/css" media="all"/>
 <script type="text/javascript" async defer src="assets/js/myblog.js"></script>
 

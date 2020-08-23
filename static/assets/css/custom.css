@@ -2,6 +2,11 @@
     display: none;
 }
 
+/* 隐藏 valine 脚标 */
+.vpower { 
+    display: none;
+}
+
 /************************ color start *************************/
     /* 主题背景色 */
     #nav-topbar.nav-container, .nav-container, .themeform input[type="submit"], .themeform button[type="submit"], .sidebar .sidebar-top, .sidebar .sidebar-toggle, #flexslider-featured .flex-control-nav li a.flex-active, .post-tags a:hover, .s1 .widget_calendar caption, #footer .widget_calendar caption, .author-bio .bio-avatar:after, .commentlist li.bypostauthor > .comment-body:after, .commentlist li.comment-author-admin > .comment-body:after {
