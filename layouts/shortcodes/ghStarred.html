@@ -4,7 +4,7 @@
     {{ $p := . }}
     <li>
       <a href="{{$p.owner.html_url}}" target="_blank">
-        <img src="{{$p.owner.avatar_url}}" alt="Avatar of {{$p.owner.login}}" title="Avatar of {{$p.owner.login}}">
+        <img src="{{$p.owner.avatar_url}}" loading="lazy" alt="Avatar of {{$p.owner.login}}" title="Avatar of {{$p.owner.login}}">
       </a>
       {{$p.language}}: <strong>{{ $p.name }}</strong>
       <a href="{{ $p.html_url }}" target="_blank">{{ $p.full_name }}</a>
